@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Desafio 2</title>
+</head>
+
+<body>
+    <div id="app">
+        <button id="button" onclick="createSquare()">Clique aqui!</button>
+        <div id="square"></div>
+
+        <input type="text" placeholder="Novo nome" id="name" />
+        <button id="list" onclick="addList()">Criar Lista</button>
+        <ul id="listDiv"></ul>
+    </div>
+
+    <script>
+
+        function createSquare() {
+            var squareElement = document.getElementById('square');
+            var boxElement = document.createElement('div');
+            boxElement.setAttribute("style", "width: 100px; height: 100px; background-color: red");
+            squareElement.appendChild(boxElement);
+
+            boxElement.onclick = function () {
+                var newColor = getRandomColor();
+                boxElement.setAttribute("style", `width: 100px; height: 100px; background-color: ${newColor}`);
+            }
+        }
+
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        var ulElement = document.getElementById('listDiv');
+
+        nomes.forEach(element => {
+            createList(element)
+        });
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+
+        function addList() {
+            var inputElement = document.getElementById("name");
+            createList(inputElement.value);
+
+        }
+
+        function createList(element) {
+            var liElement = document.createElement('li');
+            var textElement = document.createTextNode(element);
+            liElement.appendChild(textElement);
+            ulElement.appendChild(liElement);
+        }
+
+
+    </script>
+</body>
+
+</html>
