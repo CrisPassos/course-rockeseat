@@ -6,20 +6,43 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-alert("teste");
+var List = /*#__PURE__*/function () {
+  function List() {
+    _classCallCheck(this, List);
 
-var Teste = /*#__PURE__*/function () {
-  function Teste() {
-    _classCallCheck(this, Teste);
+    this.data = [];
   }
 
-  _createClass(Teste, [{
-    key: "method",
-    value: function method() {}
-  }, {
-    key: "one",
-    value: function one() {}
+  _createClass(List, [{
+    key: "add",
+    value: function add(data) {
+      this.data.push(data);
+    }
   }]);
 
-  return Teste;
+  return List;
 }();
+
+var TodoList = /*#__PURE__*/function () {
+  function TodoList() {
+    _classCallCheck(this, TodoList);
+
+    this.todos = [];
+  }
+
+  _createClass(TodoList, [{
+    key: "addTodo",
+    value: function addTodo() {
+      this.todos.push("novo todo");
+      console.log(this.todos);
+    }
+  }]);
+
+  return TodoList;
+}();
+
+var MinhaLista = new TodoList();
+
+document.getElementById("novoTodo").onclick = function () {
+  MinhaLista.addTodo();
+};
