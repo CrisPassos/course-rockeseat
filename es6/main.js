@@ -28,3 +28,18 @@ document.getElementById("novoTodo").onclick = function() {
 };
 
 MinhaLista.showUser();
+
+//static não olha as outras informacoes da classes somente aguarda receber um parametro, fazer a acao e ir retornar outra coisa
+class Math {
+  static soma(a, b) {
+    return a + b;
+  }
+}
+
+console.log("Soma " + Math.soma(2, 2));
+
+//mutações são possíveis dentro de uma constante
+const user = { name: "Cristiana" };
+user.name = "Alice";
+
+console.log(user);

@@ -71,4 +71,27 @@ document.getElementById("novoTodo").onclick = function () {
   MinhaLista.add("New TODO");
 };
 
-MinhaLista.showUser();
+MinhaLista.showUser(); //static não olha as outras informacoes da classes somente aguarda receber um parametro, fazer a acao e ir retornar outra coisa
+
+var Math = /*#__PURE__*/function () {
+  function Math() {
+    _classCallCheck(this, Math);
+  }
+
+  _createClass(Math, null, [{
+    key: "soma",
+    value: function soma(a, b) {
+      return a + b;
+    }
+  }]);
+
+  return Math;
+}();
+
+console.log("Soma " + Math.soma(2, 2)); //mutações são possíveis dentro de uma constante
+
+var user = {
+  name: "Cristiana"
+};
+user.name = "Alice";
+console.log(user);
