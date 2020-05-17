@@ -5,22 +5,26 @@ class List {
 
   add(data) {
     this.data.push(data);
+    console.log(this.data);
   }
 }
 
-class TodoList {
+class TodoList extends List {
   constructor() {
-    this.todos = [];
+    super();
+
+    this.user = "Cristiana";
   }
 
-  addTodo() {
-    this.todos.push("novo todo");
-    console.log(this.todos);
+  showUser() {
+    console.log(this.user);
   }
 }
 
 const MinhaLista = new TodoList();
 
 document.getElementById("novoTodo").onclick = function() {
-  MinhaLista.addTodo();
+  MinhaLista.add("New TODO");
 };
+
+MinhaLista.showUser();
