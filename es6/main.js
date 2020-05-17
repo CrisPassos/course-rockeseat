@@ -43,3 +43,36 @@ const user = { name: "Cristiana" };
 user.name = "Alice";
 
 console.log(user);
+
+//Operações em vetores
+const arr = [1, 2, 3, 4, 5];
+
+const newArr = arr.map((item, index) => {
+  return item * index;
+});
+
+console.log(newArr);
+
+//total = 0 next 1
+//total = 1 next 2
+//total = 3 next 3
+const sum = arr.reduce((total, next) => {
+  return total + next;
+});
+
+console.log(sum);
+
+//retorna os pares
+//filter retorna true or false
+const filter = arr.filter(item => {
+  return item % 2 === 0;
+});
+
+console.log(filter);
+
+//find verificar alguma informacao dentro do array
+const find = arr.find(item => {
+  return item === 4;
+});
+
+console.log(find);
