@@ -47,32 +47,31 @@ console.log(user);
 //Operações em vetores
 const arr = [1, 2, 3, 4, 5];
 
-const newArr = arr.map((item, index) => {
-  return item * index;
-});
+const newArr = arr.map((item, index) => item * index);
 
 console.log(newArr);
 
 //total = 0 next 1
 //total = 1 next 2
 //total = 3 next 3
-const sum = arr.reduce((total, next) => {
-  return total + next;
-});
+const sum = arr.reduce((total, next) => total + next);
 
 console.log(sum);
 
 //retorna os pares
 //filter retorna true or false
-const filter = arr.filter(item => {
-  return item % 2 === 0;
-});
+const filter = arr.filter(item => item % 2 === 0);
 
 console.log(filter);
 
 //find verificar alguma informacao dentro do array
-const find = arr.find(item => {
-  return item === 4;
-});
+const find = arr.find(item => item === 4);
 
 console.log(find);
+
+//Arrow functions são utilizada em funções anonimas, callbacks
+const teste = () => [1, 2, 3, 4];
+console.log(teste());
+
+const teste2 = () => ({ name: "Cristiana" });
+console.log(teste2());

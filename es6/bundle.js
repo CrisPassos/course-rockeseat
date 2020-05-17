@@ -118,4 +118,18 @@ console.log(filter); //find verificar alguma informacao dentro do array
 var find = arr.find(function (item) {
   return item === 4;
 });
-console.log(find);
+console.log(find); //Arrow functions são utilizada em funções anonimas, callbacks
+
+var teste = function teste() {
+  return [1, 2, 3, 4];
+};
+
+console.log(teste());
+
+var teste2 = function teste2() {
+  return {
+    name: "Cristiana"
+  };
+};
+
+console.log(teste2());
