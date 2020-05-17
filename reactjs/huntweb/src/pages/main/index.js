@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
+import "./styles.css";
 
 function Main() {
   const [products, setProducts] = useState([]);
@@ -15,8 +16,15 @@ function Main() {
   }, []);
 
   return (
-    <div>
-      {products.map(product => <h2 key={product._id}>{product.title}</h2>)}
+    <div className="product-list">
+      {products.map(product => (
+        <article key={product._id}>
+          <strong>{product.title}</strong>
+          <p>{product.description}</p>
+
+          <a href="#">acessar</a>
+        </article>
+      ))}
     </div>
   );
 }
