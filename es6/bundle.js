@@ -1,5 +1,15 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -22,6 +32,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+/** CLASS */
 var List = /*#__PURE__*/function () {
   function List() {
     _classCallCheck(this, List);
@@ -88,13 +99,20 @@ var Math = /*#__PURE__*/function () {
   return Math;
 }();
 
-console.log("Soma " + Math.soma(2, 2)); //mutações são possíveis dentro de uma constante
+console.log("Soma " + Math.soma(2, 2));
+/** CLASS */
+
+/** CONST and LET */
+//mutações são possíveis dentro de uma constante
 
 var user = {
   name: "Cristiana"
 };
 user.name = "Alice";
-console.log(user); //Operações em vetores
+console.log(user);
+/** CONST and LET */
+
+/** OPERATION WITH ARRAY (MAP, REDUCE, FILTER, FIND)*/
 
 var arr = [1, 2, 3, 4, 5];
 var newArr = arr.map(function (item, index) {
@@ -118,7 +136,10 @@ console.log(filter); //find verificar alguma informacao dentro do array
 var find = arr.find(function (item) {
   return item === 4;
 });
-console.log(find); //Arrow functions são utilizada em funções anonimas, callbacks
+console.log(find);
+/** OPERATION WITH ARRAY (MAP, REDUCE, FILTER, FIND)*/
+
+/** ARROW FUNCTIONS (FUNCTIONS with CALLBACKS)*/
 
 var teste = function teste() {
   return [1, 2, 3, 4];
@@ -132,7 +153,10 @@ var teste2 = function teste2() {
   };
 };
 
-console.log(teste2()); //valores padrões para parametros
+console.log(teste2());
+/** ARROW FUNCTIONS (FUNCTIONS with CALLBACKS)*/
+
+/** VALUE DEFAULT IN PARAMS (FUNCTIONS with CALLBACKS)*/
 
 var soma = function soma() {
   var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
@@ -142,7 +166,10 @@ var soma = function soma() {
 
 console.log("Valores padrões");
 console.log(soma(6));
-console.log(soma()); //desestruturação
+console.log(soma());
+/** VALUE DEFAULT IN PARAMS (FUNCTIONS with CALLBACKS)*/
+
+/** DESESTRUTURAÇÃO */
 
 var user2 = {
   nome: "Cristiana",
@@ -167,3 +194,74 @@ function mostraNome(_ref) {
 }
 
 mostraNome(user2);
+/**  DESESTRUTURAÇÃO */
+
+/** REST and SPREAD */
+//REST - resto da propriedade
+
+var user3 = {
+  name: "Cristiana",
+  age: 23,
+  company: "CrisPassos"
+};
+
+var name = user3.name,
+    others = _objectWithoutProperties(user3, ["name"]);
+
+console.log("REST");
+console.log(name);
+console.log(others);
+var arr1 = [1, 2, 3, 4];
+var a = arr1[0],
+    b = arr1[1],
+    c = arr1.slice(2);
+console.log(a);
+console.log(b);
+console.log(c);
+
+function sumNumber() {
+  for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
+    params[_key] = arguments[_key];
+  }
+
+  console.log(params);
+  return params.reduce(function (total, next) {
+    return total + next;
+  });
+}
+
+console.log(sumNumber(1, 1, 2)); //SPREAD - propaga, repassa a informação do array para outro lugar
+
+var arr2 = [1, 2, 3];
+var arr3 = [4, 5, 6];
+var arr4 = [].concat(arr2, arr3);
+console.log("SPREAD");
+console.log(arr4);
+
+var user4 = _objectSpread(_objectSpread({}, user3), {}, {
+  name: "Angelica"
+});
+
+console.log(user4);
+/** REST and SPREAD */
+
+/** TEMPLATE LITERALS */
+
+var phrase = "Thiago";
+var phrase2 = "no barquinho";
+console.log("Template Literals");
+console.log("Pedro, ".concat(phrase, ", Jo\xE3o ").concat(phrase2));
+/** TEMPLATE LITERALS */
+
+/** OBJECT SHORT SYNTAX */
+
+var nome1 = "Cristiana";
+var age1 = 27;
+var user5 = {
+  nome1: nome1,
+  age1: age1,
+  company: "Cris Passos"
+};
+console.log("Object Short Syntax");
+console.log(user5);
+/** OBJECT SHORT SYNTAX */
