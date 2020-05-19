@@ -132,4 +132,38 @@ var teste2 = function teste2() {
   };
 };
 
-console.log(teste2());
+console.log(teste2()); //valores padrões para parametros
+
+var soma = function soma() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
+  return a + b;
+};
+
+console.log("Valores padrões");
+console.log(soma(6));
+console.log(soma()); //desestruturação
+
+var user2 = {
+  nome: "Cristiana",
+  idade: 27,
+  endereco: {
+    cidade: "São Paulo",
+    estado: "SP"
+  }
+};
+var nome = user2.nome,
+    idade = user2.idade,
+    cidade = user2.endereco.cidade;
+console.log("desestruturação");
+console.log(nome);
+console.log(idade);
+console.log(cidade);
+
+function mostraNome(_ref) {
+  var nome = _ref.nome,
+      idade = _ref.idade;
+  console.log(nome, idade);
+}
+
+mostraNome(user2);

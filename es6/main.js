@@ -75,3 +75,32 @@ console.log(teste());
 
 const teste2 = () => ({ name: "Cristiana" });
 console.log(teste2());
+
+//valores padrões para parametros
+const soma = (a = 3, b = 4) => a + b;
+console.log("Valores padrões");
+console.log(soma(6));
+console.log(soma());
+
+//desestruturação
+const user2 = {
+  nome: "Cristiana",
+  idade: 27,
+  endereco: {
+    cidade: "São Paulo",
+    estado: "SP",
+  },
+};
+
+const { nome, idade, endereco: { cidade } } = user2;
+
+console.log("desestruturação");
+console.log(nome);
+console.log(idade);
+console.log(cidade);
+
+function mostraNome({ nome, idade }) {
+  console.log(nome, idade);
+}
+
+mostraNome(user2);
