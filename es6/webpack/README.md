@@ -1,36 +1,38 @@
 # Webpack dev server
 
-Project developed to test new functions of ES6.
+Webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging.
 
 ## Agenda
 
-- babel
-- classes 
-- const and let 
-- arrays
-- arrow functions (map, filter, find and reduce)
-- defaults values
-- destructuring patterns
-- rest/spread
-- templates literals
-- object short syntax
+- Config Webpack
+- Import/Export 
+- Webpack dev server 
 
-## Install
+## Install dependencies
 
 ```bash
 yarn install
 ```
 
-## Install Dependencies
-
 ```bash
 yarn add webpack webpack-cli -D
-
-yarn add babel-loader -D
-``` 
-
-## Run challenge.js
+```
 
 ```bash
-yarn challenge 
+yarn add babel-loader -D
+```
+
+```bash
+yarn add webpack-dev-server -D
+```
+
+
+## Start
+
+```bash
+yarn dev 
+```
+
+```bash
+yarn build 
 ```
