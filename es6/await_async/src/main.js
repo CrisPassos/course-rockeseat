@@ -1,4 +1,6 @@
 import Api from "./api";
+import { oneForSec } from "./challenge";
+import Challenge from "./challenge";
 
 /** Criando uma Promise - modo antigo  */
 const myPromise = () =>
@@ -28,3 +30,12 @@ const execProm = async () => {
 execProm();
 
 Api.getUserInfo("crispassos");
+
+/** CHALLENGE */
+oneForSec();
+
+Challenge.getUserFromGithub("crispassos");
+Challenge.getUserFromGithub("daljdja");
+
+Challenge.getRepositories("crispassos/course-rockeseat");
+Challenge.getRepositories("crispassos/bla");
