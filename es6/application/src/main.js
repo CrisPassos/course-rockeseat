@@ -14,6 +14,18 @@ class App {
     this.formEl.onsubmit = event => this.addRepository(event);
   }
 
+  setLoading(loading = true) {
+    if (loading) {
+      let loadingEl = document.createElement("span");
+      loadingEl.appendChild(document.createTextNode("Carregando"));
+      loadingEl.setAttribute("id", "loading");
+
+      this.formEl.appendChild(loadingEl);
+    } else {
+      document.getElementById("loading").remove();
+    }
+  }
+
   async addRepository(event) {
     //não carrega a página ou envia um get
     event.preventDefault();
@@ -21,6 +33,8 @@ class App {
     const repoInput = this.inputEl.value;
 
     if (repoInput.length === 0) return;
+
+    this.setLoading();
 
     try {
       const response = await api.get(`/repos/${repoInput}`);
@@ -41,12 +55,13 @@ class App {
       });
 
       this.inputEl.value = "";
+
+      this.render();
     } catch (error) {
-      console.warn("Error API");
+      console.warn("ERROR in API");
     }
 
-    console.log(this.repositories);
-    this.render();
+    this.setLoading(false);
   }
 
   render() {
