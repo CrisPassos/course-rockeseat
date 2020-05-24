@@ -19,7 +19,7 @@ npm install express
 ```
 
 ```bash
-yarn add babel-loader -D
+npm install --save -D nodemon
 ```
 
 ```bash
@@ -30,9 +30,9 @@ yarn add webpack-dev-server -D
 ## Start
 
 ```bash
-yarn dev 
+node server.js 
 ```
 
 ```bash
-yarn build 
+npm run dev 
 ```
