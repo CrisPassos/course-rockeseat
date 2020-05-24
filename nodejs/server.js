@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 //start mongoose
-mongoose.connect("mongodb://localhost:27017/nodeapi", {
+mongoose.connect("", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
