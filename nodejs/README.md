@@ -22,11 +22,6 @@ npm install express
 npm install --save -D nodemon
 ```
 
-```bash
-yarn add webpack-dev-server -D
-```
-
-
 ## Start
 
 ```bash
@@ -36,3 +31,26 @@ node server.js
 ```bash
 npm run dev 
 ```
+
+## Docker
+- clone mongo machine
+```bash
+docker pull mongo
+```
+- create mongo image and redirect to port 27017
+```bash
+docker run --name mongodb -p 27017:27017 -d mongo
+```
+
+- all images
+```bash
+docker ps 
+```
+- start server
+```bash
+docker start mongo
+```
+
+## Links
+- https://docs.docker.com/docker-for-mac/install/
+- https://robomongo.org/download
