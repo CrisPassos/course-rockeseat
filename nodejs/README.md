@@ -32,6 +32,11 @@ node server.js
 npm run dev 
 ```
 
+```bash
+npm install mongoose 
+```
+
+
 ## Docker
 - clone mongo machine
 ```bash
