@@ -40,6 +40,10 @@ npm install mongoose
 npm install require-dir
 ```
 
+```bash
+npm install mongoose-paginate
+```
+
 ## Docker
 - clone mongo machine
 ```bash
