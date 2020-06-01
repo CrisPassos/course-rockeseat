@@ -36,6 +36,9 @@ npm run dev
 npm install mongoose 
 ```
 
+```bash
+npm install require-dir
+```
 
 ## Docker
 - clone mongo machine
@@ -59,3 +62,4 @@ docker start mongo
 ## Links
 - https://docs.docker.com/docker-for-mac/install/
 - https://robomongo.org/download
+- https://www.producthunt.com/
